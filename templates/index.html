@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Water Saver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f4fbff;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        }
+        h1 { text-align: center; }
+        label { display: block; margin-top: 18px; font-weight: bold; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 7px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 24px;
+            padding: 15px;
+            background: #eef9ff;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .tips { margin-top: 25px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>💧 Smart Water Saver</h1>
+        <p>Enter your daily household water usage to estimate usage per person.</p>
+
+        <form method="POST">
+            <label for="water">Daily water usage (litres)</label>
+            <input id="water" type="number" name="water" min="1" step="0.1" required>
+
+            <label for="people">Number of people</label>
+            <input id="people" type="number" name="people" min="1" step="1" required>
+
+            <button type="submit">Check Usage</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <strong>{{ result }}</strong>
+            </div>
+        {% endif %}
+
+        <div class="tips">
+            <h3>Simple water-saving tips</h3>
+            <ul>
+                <li>Turn off taps when not needed.</li>
+                <li>Fix leaking taps and pipes quickly.</li>
+                <li>Reuse suitable household water where possible.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
